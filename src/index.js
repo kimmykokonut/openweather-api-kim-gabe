@@ -22,8 +22,9 @@ function getWeather(city) {
 // UI Logic
 
 function printElements(apiResponse, city) {
+  const tempF = Math.round(((apiResponse.main.temp - 273.15) * 9/5 + 32) * 100) / 100;
   document.querySelector('#showResponse').innerText = `The humidity in ${city} is ${apiResponse.main.humidity}%.
-  The temperature in Kelvins is ${apiResponse.main.temp} degrees.`;
+  The temperature is ${tempF} degrees Fahrenheit.`;
 }
 
 function handleFormSubmission(event) {
